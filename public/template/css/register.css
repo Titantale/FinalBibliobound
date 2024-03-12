@@ -1,0 +1,65 @@
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #6a11cb;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+    }
+
+.bg-newImage {
+    background:url('../img/librarybg.jpg');
+    background-position:center;
+    background-size:cover
+}
+ 
+.bg-newImage2 {
+    background:url('../img/registerbg.jpg');
+    background-position:center;
+    background-size:cover
+}
+ 
+.bg-newImage3 {
+    background:url('../img/loginbg.jpg');
+    background-position:center;
+    background-size:cover
+}
+
+.bg-newImage5 {
+    background:url('../img/newbackgroundlogin.jpg');
+    background-position:center;
+    background-size:cover
+}
+
+.bg-aboutImage {
+    background:url('../img/about.jpg');
+    background-position:center;
+    background-size:cover
+  }
+
+.bg-Amzar {
+    background-image:url('../img/Amzar.png');
+    background-repeat: no-repeat;
+    background-position:center;
+    width: 300px;
+    height: 200px;
+  }
+
+.bg-Arif {
+background-image:url('../img/Aeh.png');
+background-repeat: no-repeat;
+background-position:center;
+width: 300px;
+height: 200px;
+}
+
+.bg-Afiq {
+    background-image:url('../img/Afiq.png');
+    background-repeat: no-repeat;
+    background-position:center;
+    width: 300px;
+    height: 200px;
+    }
+    
