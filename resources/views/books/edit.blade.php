@@ -18,15 +18,13 @@
         <!-- Image upload -->
         <div class="mb-3">
             <label for="image">Image</label>
-            <input type="file" class="form-control" id="image" name="image" onchange="previewImage(event)">
-            <img id="imagePreview" src="{{ asset('images/'.$book->image) }}" alt="Preview" style="max-width: 100%; margin-top: 10px;">
+            <div style="text-align: center;">
+                <input type="file" class="form-control" id="image" name="image" onchange="previewImage(event)">
+                <!-- Display uploaded image preview -->
+                <img id="imagePreview" src="{{ asset('images/'.$book->image) }}" alt="Preview" style="max-width: 100%; max-height: 300px; margin: 10px auto;">
+            </div>
         </div>
 
-
-        <div class="mb-3">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" name="title" value="{{$book->title}}">
-        </div>
 
         <div class="mb-3">
             <label for="isbn">ISBN</label>
@@ -34,13 +32,18 @@
         </div>
 
         <div class="mb-3">
-            <label for="author">Author</label>
-            <input type="text" class="form-control" id="author" name="author" value="{{$book->author}}">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{$book->title}}">
         </div>
 
         <div class="mb-3">
-            <label for="status">Status</label>
-            <input type="text" class="form-control" id="status" name="status" value="{{$book->status}}">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" id="location" name="location" value="{{$book->location}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" id="author" name="author" value="{{$book->author}}">
         </div>
 
         <div class="mb-3">

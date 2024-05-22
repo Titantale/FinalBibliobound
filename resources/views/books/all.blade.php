@@ -23,13 +23,22 @@
     </div>
     @endif
 
+    @if(auth()->check() && $hasBorrowedBooks)
+        <div class="col-md-6 text-right">
+            <a href="{{ route('recommendations') }}" class="btn btn-secondary">Recommend Books</a>
+        </div>
+    @endif
+
 </div>
+
+
 
 <style>
     .centered-image {
         display: block;
         margin: auto;
         padding-top: 10px;
+        width: 250px;
         height: 300px;
     }
     .card-body p {
@@ -43,19 +52,29 @@
     font-weight: bold;
 }
     .status-booked {
-    background-color: #FFFF00; /* Yellow color */
+    background-color: #FFBE33; /* Yellow color */
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
     font-weight: bold;
 }
     .status-borrowed {
-    background-color: #FF0000; /* Red color */
+    background-color: #E70F0F; /* Red color */
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
     font-weight: bold;
 }
+
+.fa-star.checked {
+    color: gold; /* Yellow color */
+}
+
+/* Define the default style for the unchecked (empty) stars */
+.fa-star {
+    color: #ccc; /* Light gray color */
+}
+
 
 </style>
 
@@ -74,6 +93,31 @@
 
             <div class="card-body text-center">
                 <h4 class="card-title my-title">{{ $book->title }}</h4>
+
+                <div class="stars">
+                    @if ($book->totalrating !== null)
+                        <div class="stars">
+                            @php
+                                $roundedRating = floor($book->totalrating); // Round down the total rating
+                            @endphp
+                            @for ($i = 1; $i <= $roundedRating; $i++)
+                                <span class="fa fa-star checked"></span>
+                            @endfor
+                            @for ($i = $roundedRating + 1; $i <= 5; $i++)
+                                <span class="fa fa-star"></span>
+                            @endfor
+                            <br>
+                            ({{ number_format($book->totalrating, 1) }}) <!-- Display total rating to 2 decimal points -->
+                        </div>
+                    @else
+                            @for ($i = 1; $i <= 5; $i++)
+                                <span class="fa fa-star"></span>
+                            @endfor
+                            <br>
+                            (no ratings)
+                    @endif
+                </div>
+
                 <p class="card-text">Genres:
                     @if($book->genre1 != '-') {{ $book->genre1 }} @endif
                     @if($book->genre2 != '-') {{ $book->genre2 }} @endif
@@ -124,12 +168,13 @@
                 </p>
             </div>
         </div>
+        <br>
     </div>
     @endforeach
 </div>
-<br>
 
-        {{ $books->links() }} <!-- Pagination links -->
+
+{{ $books->links() }}
 
 
 @endsection

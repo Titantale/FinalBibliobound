@@ -13,13 +13,18 @@
         <h4>Add New Book</h4>
 
         <!-- NI SAVE IMAGE -->
-        <div class="mb-3">
+        <div class="mb-3" >
             <label for="image">Image</label>
             <input type="file" class="form-control" id="image" name="image" onchange="previewImage(event)">
             <!-- Display uploaded image preview -->
-            <img id="imagePreview" src="#" alt="Preview" style="display: none; max-width: 100%; margin-top: 10px;">
+            <img id="imagePreview" src="#" alt="Preview" style="display: none; max-width: 100%; max-height: 300px;  margin: 10px auto;">
         </div>
         <!-- _____________ -->
+
+        <div class="mb-3">
+            <label for="isbn">ISBN</label>
+            <input type="text" class="form-control" id="isbn" name="isbn" value="">
+        </div>
 
         <div class="mb-3">
             <label for="title">Title</label>
@@ -27,9 +32,10 @@
         </div>
 
         <div class="mb-3">
-            <label for="isbn">ISBN</label>
-            <input type="text" class="form-control" id="isbn" name="isbn" value="">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" id="location" name="location" value="">
         </div>
+
 
         <div class="mb-3">
             <label for="author">Author</label>

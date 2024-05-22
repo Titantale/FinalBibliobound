@@ -4,6 +4,13 @@
 
 <h3>Mood Based Recommendation system</h3>
 
+@if(session('message'))
+    <div class="alert alert-info">
+        {{ session('message') }}
+    </div>
+@endif
+
+
 <style>
     .testing {
         /* Add margin-right to move content to the left */
@@ -58,8 +65,18 @@
         <!-- Add a container for emoji description -->
         <div class="emoji-description" id="emojiDescription">Romantic</div>
         <input type="range" min="0" max="4" value="2" id="slider">
+        
+        <!-- Add the form for submitting the mood selection -->
+        <br>
+        <form action="{{ route('recommend-book') }}" method="POST">
+        @csrf
+        <input type="hidden" name="mood" id="selectedMood" value="2"> <!-- Assuming initial mood value is 2 -->
+        <button type="submit" class="btn btn-primary">Recommend Book</button>
+    </form>
+
     </div>
 </div>
+
 
 
 <script>
@@ -89,7 +106,32 @@
     slider.oninput = function() {
         emoji.innerHTML = `<i class="${emoticons[slider.value]}"></i>`;
         emojiDescription.textContent = descriptions[slider.value];
+
+        // Update the value of the hidden input field
+        document.getElementById("selectedMood").value = slider.value;
     }
 </script>
 
+
 @endsection
+
+<!-- <form id="recommendForm">
+            @csrf
+            <input type="hidden" name="mood" id="selectedMood" value="2"> 
+            <button type="button" class="btn btn-primary" id="recommendButton">Recommend Book</button>
+</form>
+
+<script>
+slider.oninput = function() {
+        emoji.innerHTML = `<i class="${emoticons[slider.value]}"></i>`;
+        emojiDescription.textContent = descriptions[slider.value];
+
+        
+        selectedMood.value = slider.value;
+    }
+
+    
+    document.getElementById("recommendButton").addEventListener("click", function() {
+        var selectedMoodValue = document.getElementById("selectedMood").value;
+        selectedMoodDisplay.textContent = "Selected Mood: " + (parseInt(selectedMoodValue)); // Add 1 to make it 1-5 instead of 0-4
+    }); -->

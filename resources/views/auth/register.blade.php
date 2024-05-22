@@ -13,6 +13,25 @@
         </div>
     @endif
 
+    <div class="container">
+        <h3 class="heading" style="text-align: center; margin-bottom:20px;">Register Account</h3>
+
+        <!-- Your form code here -->
+        <form class="user" method="POST" action="{{ route('register') }}">
+            <!-- Form fields -->
+        </form>
+    </div>
+
+    <style>
+        .container {
+            align-items: center; /* Align items horizontally in the center */
+        }
+
+        .heading {
+            margin-bottom: 20px; /* Add some space between the heading and the form */
+        }
+    </style>
+
     <form class="user" method="POST" action="{{ route('register') }}">
         @csrf
 
