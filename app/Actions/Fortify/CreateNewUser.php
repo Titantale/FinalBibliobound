@@ -36,7 +36,7 @@ class CreateNewUser implements CreatesNewUsers
 
         if (isset($input['adminCheckbox']) && $input['adminCheckbox'] == 'on') {
             // If admin checkbox is checked, check if admin password is correct
-            if ($input['adminPassword'] === 'afiq12345') {
+            if ($input['adminPassword'] === 'book12345') {
                 // Set user status to 2 for admin user
                 $userstatus = 2;
             }
